@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.BookOperations.CreateBook;
+using WebApi.BookOperations.DeleteBook;
+using WebApi.BookOperations.GetBookDetail;
 using WebApi.BookOperations.GetBooks;
+using WebApi.BookOperations.UpdateBook;
 using WebApi.DBOperations;
 
 namespace WebApi.Controllers
@@ -30,17 +33,24 @@ namespace WebApi.Controllers
           return Ok(result); 
 
       }
-
+       
       [HttpGet("{id}")] // route dan alırız 
-      public Book GetById(int id)
+      public IActionResult GetById(int id)
       {
-          var book = _context.Books.Where(b=>b.Id == id).FirstOrDefault();
-          if (book == default)
+          BookDetailViewModel result;
+          GetBookDetailQuery query = new GetBookDetailQuery(_context);
+          query.BookId = id; 
+          try
           {
-             Console.WriteLine("Böyle bir kitap yok !"); 
+              result = query.Handle();
           }
+          catch (Exception ex)
+          {
+              
+              return BadRequest(ex.Message);
+          }   
 
-          return book;
+          return Ok(result);
       }
 
     //   [HttpGet]  // query den alırız
@@ -73,31 +83,43 @@ namespace WebApi.Controllers
       } 
 
       [HttpPut("{id}")]
-      public IActionResult UpdateBook(int id,[FromBody] Book updatedBook)
+      public IActionResult UpdateBook(int id,[FromBody] UpdateBookModel updatedBook)
       {
-          var book = _context.Books.FirstOrDefault(b=>b.Id == id);
+          UpdateBookCommand command = new UpdateBookCommand(_context);
+          command.BookId = id;
+          command.model = updatedBook; 
 
-          if(book ==null)
-             return BadRequest(new {message = "Böyle bir kitap bulunmamakta !"});
-          book.GenreId = updatedBook.GenreId != default ? updatedBook.GenreId : book.GenreId;
-          book.PageCount = updatedBook.PageCount != default ? updatedBook.PageCount : book.PageCount;
-          book.PublishDate = updatedBook.PublishDate != default ? updatedBook.PublishDate : book.PublishDate;
-          book.Title = updatedBook.Title != default ? updatedBook.Title : book.Title;
-          _context.SaveChanges();
-          return Ok(new {message ="kitap başarı ile güncellendi."});    
+          try
+          {
+               command.Handle();
+
+          }
+          catch (Exception ex)
+          {
+              
+              return BadRequest(ex.Message);
+          } 
+
+          return Ok("Kitap güncellendi");  
       }
       
       [HttpDelete]
       public IActionResult DeleteBook(int id)
       {
-          var book = _context.Books.FirstOrDefault(b=>b.Id == id);
+          DeleteBookCommand command = new DeleteBookCommand(_context);
+          command.BookId = id ;
 
-          if(book == null)
-            return BadRequest(new {message = "Böyle bir kitap bulunmamakta !"});
+          try
+          {
+              command.Handle();
+          }
+          catch (Exception ex)
+          {
+              
+              return BadRequest(ex.Message);
+          } 
 
-          _context.Books.Remove(book);
-          _context.SaveChanges();
-          return Ok(new {message = "Kitap başarı ile silindi."});  
+          return Ok("Kitap Silindi");
       }
 
     }
