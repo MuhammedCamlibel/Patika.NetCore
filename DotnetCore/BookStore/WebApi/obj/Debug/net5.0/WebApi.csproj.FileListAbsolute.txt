@@ -57,7 +57,6 @@ C:\Users\Muhammed\Desktop\patika.NetCore\DotnetCore\BookStore\WebApi\obj\Debug\n
 C:\Users\Muhammed\Desktop\patika.NetCore\DotnetCore\BookStore\WebApi\obj\Debug\net5.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Muhammed\Desktop\patika.NetCore\DotnetCore\BookStore\WebApi\obj\Debug\net5.0\WebApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Muhammed\Desktop\patika.NetCore\DotnetCore\BookStore\WebApi\obj\Debug\net5.0\staticwebassets\WebApi.StaticWebAssets.Manifest.cache
-C:\Users\Muhammed\Desktop\patika.NetCore\DotnetCore\BookStore\WebApi\obj\Debug\net5.0\staticwebassets\WebApi.StaticWebAssets.xml
 C:\Users\Muhammed\Desktop\patika.NetCore\DotnetCore\BookStore\WebApi\obj\Debug\net5.0\scopedcss\bundle\WebApi.styles.css
 C:\Users\Muhammed\Desktop\patika.NetCore\DotnetCore\BookStore\WebApi\obj\Debug\net5.0\WebApi.RazorTargetAssemblyInfo.cache
 C:\Users\Muhammed\Desktop\patika.NetCore\DotnetCore\BookStore\WebApi\obj\Debug\net5.0\WebApi.dll
@@ -68,3 +67,4 @@ C:\Users\Muhammed\Desktop\patika.NetCore\DotnetCore\BookStore\WebApi\bin\Debug\n
 C:\Users\Muhammed\Desktop\patika.NetCore\DotnetCore\BookStore\WebApi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Muhammed\Desktop\patika.NetCore\DotnetCore\BookStore\WebApi\obj\Debug\net5.0\WebApi.csproj.AssemblyReference.cache
 C:\Users\Muhammed\Desktop\patika.NetCore\DotnetCore\BookStore\WebApi\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\Muhammed\Desktop\patika.NetCore\DotnetCore\BookStore\WebApi\obj\Debug\net5.0\WebApi.csproj.CopyComplete

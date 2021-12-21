@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using WebApi.Common;
 using WebApi.DBOperations;
 
-namespace WebApi.BookOperations.GetBooks
+namespace WebApi.Application.BookOperations.Queries.GetBooks
 {
     public class GetBooksQuery
     {
@@ -19,7 +20,7 @@ namespace WebApi.BookOperations.GetBooks
 
       public List<BookViewModel> Handle()
       {
-          var bookList = _context.Books.OrderBy(b=>b.Id).ToList();
+          var bookList = _context.Books.Include(x=>x.Genre).OrderBy(b=>b.Id).ToList();
            List<BookViewModel> vm = _mapper.Map<List<BookViewModel>>(bookList);  //new List<BookViewModel>();
 
         //   foreach (var book in bookList)
