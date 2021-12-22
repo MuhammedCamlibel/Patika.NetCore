@@ -1,4 +1,8 @@
 using AutoMapper;
+using WebApi.Application.AuthorOperations.Commands.CreateAuthor;
+using WebApi.Application.AuthorOperations.Commands.UpdateAuthor;
+using WebApi.Application.AuthorOperations.Queries.GetAuthorDetail;
+using WebApi.Application.AuthorOperations.Queries.GetAuthors;
 using WebApi.Application.BookOperations.Commands.CreateBook;
 using WebApi.Application.BookOperations.Queries.GetBookDetail;
 using WebApi.Application.BookOperations.Queries.GetBooks;
@@ -20,6 +24,11 @@ namespace WebApi.Common
             CreateMap<Genre,GenreViewModel>().ReverseMap();
             CreateMap<Genre,GenreDetailViewModel>().ReverseMap();
             CreateMap<Genre,CreateGenreModel>().ReverseMap();
+            
+            CreateMap<Author,AuthorViewModel>().ReverseMap();
+            CreateMap<Author,AuthorDetailViewModel>().ReverseMap();
+            CreateMap<Author,CreateAuthorModel>().ReverseMap();
+            CreateMap<Author,UpdateAuthorModel>().ReverseMap();
         }
     }
 }
