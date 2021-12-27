@@ -34,12 +34,13 @@ namespace WebApi
 
             services.AddControllers();
             services.AddDbContext<BookStoreDbContext>(options=>options.UseInMemoryDatabase(databaseName:"BookStoreDB"));
+            services.AddScoped<IBookStoreDbContext,BookStoreDbContext>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi", Version = "v1" });
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddSingleton<ILoggerService,ConsoleLogger>();
+            services.AddSingleton<ILoggerService,ConsoleLogger>();  
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
