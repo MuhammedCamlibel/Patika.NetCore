@@ -8,11 +8,13 @@ namespace WebApi.Controllers
     using global::WebApi.Application.AuthorOperations.Queries.GetAuthorDetail;
     using global::WebApi.Application.AuthorOperations.Queries.GetAuthors;
     using global::WebApi.DBOperations;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     
     
     namespace WebApi.Controllers
     {
+        [Authorize]
         [Route("[controller]s")]
         [ApiController]
         public class AuthorController : ControllerBase
